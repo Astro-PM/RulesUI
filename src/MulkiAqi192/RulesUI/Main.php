@@ -3,7 +3,7 @@
 namespace MulkiAqi192\RulesUI;
 
 use pocketmine\Server;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 use pocketmine\plugin\PluginBase;
 
@@ -15,13 +15,13 @@ use pocketmine\event\player\PlayerJoinEvent;
 
 class main extends PluginBase implements Listener {
 
-	public function onEnable(){
+	public function onEnable(): void {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		if(is_null($this->getServer()->getPluginManager()->getPlugin("FormAPI"))){
 			$this->getLogger()->info("§cYou need FormAPI to use RulesUI Plugin! disabling plugin...");
 			$this->getServer()->getPluginManager()->disablePlugin($this);
 		} else {
-			$this->getLogger()->info("§aFormAPI is Founded! Enabling plugin.... Support me on PayPal if you like this plugin! §bhttps://paypal.me/jedimasters");
+		 
 		}
 		@mkdir($this->getDataFolder());
 		$this->saveDefaultConfig();
@@ -43,6 +43,7 @@ class main extends PluginBase implements Listener {
 
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
+                 
 		$this->rules($player);
 	}
 
