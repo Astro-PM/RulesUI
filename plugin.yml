@@ -1,9 +1,15 @@
 name: RulesUI
 main: MulkiAqi192\RulesUI\Main
 author: MulkiAqi192
-api: 3.0.0
+api: 4.0.0
 version: 1.0
 
 commands:
   rules:
-    description: "Read the server rules"
+    description: Read the server rules
+    permission: rules.cmd 
+
+permissions:
+  rules.cmd:
+    description: perm to use cmd 
+    default: true
